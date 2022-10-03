@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_10_03_020030) do
+ActiveRecord::Schema.define(version: 2022_10_03_062950) do
 
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
@@ -54,7 +54,7 @@ ActiveRecord::Schema.define(version: 2022_10_03_020030) do
 
   create_table "favorites", force: :cascade do |t|
     t.integer "user_id", null: false
-    t.integer "post_id", null: false
+    t.integer "post_spot_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
@@ -67,19 +67,19 @@ ActiveRecord::Schema.define(version: 2022_10_03_020030) do
 
   create_table "post_comments", force: :cascade do |t|
     t.integer "user_id", null: false
-    t.integer "post_id", null: false
+    t.integer "post_spot_id", null: false
     t.string "comment", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
 
-  create_table "posts", force: :cascade do |t|
+  create_table "post_spots", force: :cascade do |t|
     t.integer "user_id", null: false
     t.string "name", null: false
     t.string "address", null: false
     t.string "postcode", null: false
-    t.float "latitude", null: false
-    t.float "longitude", null: false
+    t.float "latitude"
+    t.float "longitude"
     t.text "introduction", null: false
     t.string "comment", null: false
     t.datetime "created_at", precision: 6, null: false
@@ -93,7 +93,7 @@ ActiveRecord::Schema.define(version: 2022_10_03_020030) do
   end
 
   create_table "spots", force: :cascade do |t|
-    t.integer "post_id", null: false
+    t.integer "post_spot_id", null: false
     t.integer "genre_id", null: false
     t.integer "prefecture", null: false
     t.string "name", null: false
@@ -109,6 +109,7 @@ ActiveRecord::Schema.define(version: 2022_10_03_020030) do
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
     t.string "name", null: false
+    t.string "introduction"
     t.string "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"

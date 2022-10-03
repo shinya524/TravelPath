@@ -13,7 +13,7 @@ Rails.application.routes.draw do
     resources :spots, only: [:index, :show]
     resources :users, only: [:show, :edit, :update]
     get '/users/:id/detail' => 'users#detail'
-    resources :posts, only: [:new, :show, :edit, :update, :destroy, :create]
+    resources :post_spots, only: [:new, :show, :edit, :update, :destroy, :create]
   end
 
   #管理者用

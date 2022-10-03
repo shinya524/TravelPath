@@ -1,2 +1,39 @@
-<h1>Public::Users#show</h1>
-<p>Find me in app/views/public/users/show.html.erb</p>
+<div>
+  <%= image_tag @user.get_profile_image(100, 100) %>
+  <h4>名前:<%= @user.name %></h4>
+  <h4>紹介文:<%= @user.introduction %></h4>
+</div>
+
+<div>
+  <%= link_to edit_user_path(@user.id) do %>
+    プロフィール編集
+  <% end %>
+</div>
+
+<% @post_spots.each do |post_spot| %>
+<div>
+  <div>
+    <p><%= post_spot.comment %></p>
+  </div>
+  <div>
+    <%= image_tag post_spot.get_spot_image(300,300) %>
+  </div>
+  <div>
+    <p><%= post_spot.name %></p>
+    <p><%= post_spot.postcode %></p>
+    <p><%= post_spot.address %></p>
+    <p><%= post_spot.user.name %></p>
+  </div>
+
+  <% if post_spot.user == current_user %>
+    <%= link_to edit_post_spot_path(post_spot.id) do %>
+      編集
+    <% end %>
+
+    <%= link_to post_spot_path(post_spot.id), method: :delete do %>
+      削除
+    <% end %>
+  <% end %>
+</div>
+
+<% end %>

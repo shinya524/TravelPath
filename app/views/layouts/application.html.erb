@@ -15,7 +15,7 @@
       <nav class ="navbar navbar-expand-lg navbar-dark bg-dark">
         <div class ="container">
           <a class ="navbar-brand" href ="/">
-            travelPath
+            TravelPath
           </a>
           <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown"
                         aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
@@ -40,7 +40,7 @@
                   <% end %>
                 </li>
                 <li>
-                  <%= link_to new_post_path, class: "nav-link text-light" do %>
+                  <%= link_to new_post_spot_path, class: "nav-link text-light" do %>
                   投稿
                   <% end %>
                 </li>
@@ -100,8 +100,14 @@
       <%= yield %>
     </main>
 
-    <footer>
-
+    <footer class ="fixed-bottom">
+      <div class ="container mt-5">
+        <div class ="row">
+          <div class ="mx-auto">
+            <p>travelpath</p>
+          </div>
+        </div>
+      </div>
     </footer>
   </body>
 </html>

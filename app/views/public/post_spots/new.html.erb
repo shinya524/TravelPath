@@ -1,0 +1,28 @@
+<h1>新規登録</h1>
+
+<%= form_with model: @post_spot do |f| %>
+  <h4>画像</h4>
+  <%= f.file_field :spot_image, accept: "image/*" %>
+
+  <h4>スポット名</h4>
+  <%= f.text_field :name %>
+
+  <h4>郵便番号</h4>
+  <%= f.text_field :postcode %>
+
+  <h4>住所</h4>
+  <%= f.text_field :address %>
+
+  <h4>ジャンル</h4>
+  <%= f.hidden_field :genre %>
+
+
+  <h4>紹介文</h4>
+  <%= f.text_area :introduction %>
+
+  <h4>一言コメント</h4>
+  <%= f.text_field :comment %>
+
+  <%= f.submit "投稿する" %>
+
+<% end %>

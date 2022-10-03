@@ -1,6 +1,6 @@
 class Spot < ApplicationRecord
 
-  has_many :posts
+  has_many :post_spots
   has_many :genres
   has_many :prefectures
 end
