@@ -1,5 +1,29 @@
 Rails.application.routes.draw do
-  devise_for :admins
-  devise_for :users
+
+  #ユーザー用
+  scope module: 'public' do
+    devise_for :users, skip: [:password], controllers: {
+      registrations: "public/registrations",
+      sessions: 'public/sessions'
+    }
+
+    root to: "homes#top"
+    get "/about" => "homes#about"
+
+    resources :spots, only: [:index, :show]
+    resources :users, only: [:show, :edit, :update]
+    get '/users/:id/detail' => 'users#detail'
+    resources :posts, only: [:new, :show, :edit, :update, :destroy, :create]
+  end
+
+  #管理者用
+  devise_for :admin, skip: [:registrations, :password], controllers: {
+    sessions: "admin/sessions"
+  }
+
+  namespace :admin do
+    get "/" => "homes#top"
+  end
+
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end
