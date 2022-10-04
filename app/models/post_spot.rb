@@ -5,6 +5,9 @@ class PostSpot < ApplicationRecord
   has_many :post_comments
   has_many :favorites
 
+  geocoded_by :address
+  after_validation :geocode, if: :address_changed?
+
   has_one_attached :spot_image
 
   def get_spot_image(width, height)

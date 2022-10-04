@@ -1,29 +1,36 @@
-<h4>画像</h4>
-<%= image_tag @post_spot.get_spot_image(300,300) %>
+<div>
+  <%= render 'public/spots/map', post_spot: @post_spot %>
+</div>
 
-<h4>スポット名</h4>
-<%= @post_spot.name %>
+<div>
+  <h4>画像</h4>
+  <%= image_tag @post_spot.get_spot_image(300,300) %>
+</div>
+<div>
+  <h4>スポット名</h4>
+  <%= @post_spot.name %>
 
-<h4>郵便番号</h4>
-<%= @post_spot.postcode %>
+  <h4>郵便番号</h4>
+  <%= @post_spot.postcode %>
 
-<h4>住所</h4>
-<%= @post_spot.address %>
+  <h4>住所</h4>
+  <%= @post_spot.address %>
 
-<h4>ジャンル</h4>
+  <h4>ジャンル</h4>
 
-<h4>紹介文</h4>
-<%= @post_spot.introduction %>
+  <h4>紹介文</h4>
+  <%= @post_spot.introduction %>
 
-<h4>一言コメント</h4>
-<%= @post_spot.comment %><br>
+  <h4>一言コメント</h4>
+  <%= @post_spot.comment %><br>
 
-<% if @post_spot.user == current_user %>
-  <%= link_to edit_post_spot_path(@post_spot.id) do %>
-    編集
+  <% if @post_spot.user == current_user %>
+    <%= link_to edit_post_spot_path(@post_spot.id) do %>
+      編集
+    <% end %>
+
+    <%= link_to post_spot_path(@post_spot.id), method: :delete do %>
+      削除
+    <% end %>
   <% end %>
-
-  <%= link_to post_spot_path(@post_spot.id), method: :delete do %>
-    削除
-  <% end %>
-<% end %>
+</div>
