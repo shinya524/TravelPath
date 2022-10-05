@@ -2,8 +2,12 @@ class PostSpot < ApplicationRecord
 
   belongs_to :user
   belongs_to :spot, optional: true
-  has_many :post_comments
-  has_many :favorites
+  has_many :genre, dependent: :destroy
+  has_many :post_comments, dependent: :destroy
+  has_many :favorites, dependent: :destroy
+
+  extend ActiveHash::Associations::ActiveRecordExtensions
+  belongs_to :prefecture
 
   geocoded_by :address
   after_validation :geocode, if: :address_changed?

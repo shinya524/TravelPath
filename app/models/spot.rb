@@ -1,9 +1,11 @@
 class Spot < ApplicationRecord
 
-  has_many :post_spots
-  has_many :genres
-  has_many :prefectures
-  
+  has_many :post_spots, dependent: :destroy
+  has_many :genres, dependent: :destroy
+
+  extend ActiveHash::Associations::ActiveRecordExtensions
+  belongs_to :prefecture
+
   geocoded_by :address
   after_validation :geocode, if: :address_changed?
 end

@@ -1,6 +1,7 @@
 class Public::PostSpotsController < ApplicationController
   def new
     @post_spot = PostSpot.new
+    @genres = Genre.all
   end
 
   def show
@@ -30,11 +31,11 @@ class Public::PostSpotsController < ApplicationController
   def destroy
     @post_spot = PostSpot.find(params[:id])
     @post_spot.destroy
-    redirect_to "/about"
+    redirect_to user_path(user.id)
   end
 
   private
   def post_spot_params
-    params.require(:post_spot).permit(:name, :spot_image, :address, :postcode, :genre_id, :introduction, :comment, :latitude, :longitude)
+    params.require(:post_spot).permit(:name, :spot_image, :address, :postcode, :genre_id, :prefecture_id, :introduction, :comment, :latitude, :longitude)
   end
 end

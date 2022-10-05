@@ -14,6 +14,8 @@ Rails.application.routes.draw do
     resources :users, only: [:show, :edit, :update]
     get '/users/:id/detail' => 'users#detail'
     resources :post_spots, only: [:new, :show, :edit, :update, :destroy, :create]
+    resources :prefectures, only: [:show]
+    resources :genres, only: [:show]
   end
 
   #管理者用
@@ -23,6 +25,8 @@ Rails.application.routes.draw do
 
   namespace :admin do
     get "/" => "homes#top"
+
+    resources :genres, only: [:index, :edit, :create, :destroy, :update]
   end
 
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html

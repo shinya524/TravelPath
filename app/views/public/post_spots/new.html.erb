@@ -10,12 +10,14 @@
   <h4>郵便番号</h4>
   <%= f.text_field :postcode %>
 
+  <h4>都道府県</h4>
+  <%= f.collection_select :prefecture_id, Prefecture.all, :id, :name %>
+
   <h4>住所</h4>
   <%= f.text_field :address %>
 
   <h4>ジャンル</h4>
-  <%= f.hidden_field :genre %>
-
+  <%= f.collection_select :genre_id, @genres, :id, :name %>
 
   <h4>紹介文</h4>
   <%= f.text_area :introduction %>

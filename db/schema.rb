@@ -60,7 +60,7 @@ ActiveRecord::Schema.define(version: 2022_10_03_062950) do
   end
 
   create_table "genres", force: :cascade do |t|
-    t.string "genre", null: false
+    t.string "name", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
@@ -75,19 +75,15 @@ ActiveRecord::Schema.define(version: 2022_10_03_062950) do
 
   create_table "post_spots", force: :cascade do |t|
     t.integer "user_id", null: false
+    t.integer "prefecture_id", null: false
+    t.integer "genre_id", null: false
     t.string "name", null: false
     t.string "address", null: false
     t.string "postcode", null: false
-    t.float "latitude"
-    t.float "longitude"
+    t.float "latitude", null: false
+    t.float "longitude", null: false
     t.text "introduction", null: false
     t.string "comment", null: false
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-  end
-
-  create_table "prefectures", force: :cascade do |t|
-    t.string "prefecture", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
@@ -95,7 +91,7 @@ ActiveRecord::Schema.define(version: 2022_10_03_062950) do
   create_table "spots", force: :cascade do |t|
     t.integer "post_spot_id", null: false
     t.integer "genre_id", null: false
-    t.integer "prefecture", null: false
+    t.integer "prefecture_id", null: false
     t.string "name", null: false
     t.string "address", null: false
     t.string "postcode", null: false
