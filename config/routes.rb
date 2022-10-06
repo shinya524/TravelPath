@@ -15,6 +15,7 @@ Rails.application.routes.draw do
     get '/users/:id/detail' => 'users#detail'
     resources :post_spots, only: [:new, :show, :edit, :update, :destroy, :create]  do
       resource :favorites, only: [:create, :destroy]
+      resource :post_comments, only: [:create]
     end
     resources :prefectures, only: [:show]
     resources :genres, only: [:show]

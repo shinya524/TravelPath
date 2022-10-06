@@ -6,6 +6,8 @@ class Public::PostSpotsController < ApplicationController
 
   def show
     @post_spot = PostSpot.find(params[:id])
+    @post_comments = @post_spot.post_comments
+    @post_comment = current_user.post_comments.new
   end
 
   def edit
