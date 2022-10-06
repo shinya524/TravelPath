@@ -13,7 +13,9 @@ Rails.application.routes.draw do
     resources :spots, only: [:index, :show]
     resources :users, only: [:show, :edit, :update]
     get '/users/:id/detail' => 'users#detail'
-    resources :post_spots, only: [:new, :show, :edit, :update, :destroy, :create]
+    resources :post_spots, only: [:new, :show, :edit, :update, :destroy, :create]  do
+      resource :favorites, only: [:create, :destroy]
+    end
     resources :prefectures, only: [:show]
     resources :genres, only: [:show]
   end

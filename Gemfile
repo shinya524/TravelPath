@@ -66,3 +66,5 @@ gem 'geocoder'
 gem 'dotenv-rails'
 
 gem 'active_hash'
+
+gem 'jquery-rails'

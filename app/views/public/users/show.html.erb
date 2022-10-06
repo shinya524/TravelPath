@@ -18,6 +18,9 @@
   <div>
     <%= image_tag post_spot.get_spot_image(300,300) %>
   </div>
+  <div id ="favorite_buttons_<%= post_spot.id %>">
+    <%= render "public/favorites/favorites", post_spot: post_spot %>
+  </div>
   <div>
     <p><%= post_spot.name %></p>
     <p><%= post_spot.postcode %></p>

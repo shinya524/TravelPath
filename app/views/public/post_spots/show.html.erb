@@ -6,6 +6,9 @@
   <h4>画像</h4>
   <%= image_tag @post_spot.get_spot_image(300,300) %>
 </div>
+<div  class ="favorite_buttons">
+  <%= render "public/favorites/favorites", post_spot: @post_spot %>
+</div>
 <div>
   <h4>スポット名</h4>
   <%= @post_spot.name %>
