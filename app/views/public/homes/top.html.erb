@@ -1,4 +1,25 @@
 <div>
+  <table>
+    <thead>
+      <tr>
+        <th>都道府県一覧</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @prefectures.each do |prefecture| %>
+      <tr>
+        <td>
+          <%= link_to prefecture_path(prefecture.id) do %>
+          <%= prefecture.name %>
+          <% end %>
+        </td>
+      </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>
+
+<div>
   <% @post_spots.each do |post_spot| %>
 
     <%= image_tag post_spot.get_spot_image(100,100) %>

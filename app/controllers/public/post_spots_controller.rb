@@ -31,7 +31,7 @@ class Public::PostSpotsController < ApplicationController
   def destroy
     @post_spot = PostSpot.find(params[:id])
     @post_spot.destroy
-    redirect_to user_path(user.id)
+    redirect_to user_path(@post_spot.user.id)
   end
 
   private

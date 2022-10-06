@@ -1,2 +1,43 @@
-<h1>Public::Prefectures#show</h1>
-<p>Find me in app/views/public/prefectures/show.html.erb</p>
+<div>
+  <h4><%= @prefecture.name %></h4>
+</div>
+
+<div>
+  <table>
+    <thead>
+      <tr>
+        <th>ジャンル名</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @genres.each do |genre| %>
+      <tr>
+        <td><%= genre.name %></td>
+      </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>
+
+<div>
+  <% @prefecture_post_spots.each do |post_spot| %>
+  <div>
+    <p><%= post_spot.comment %></p>
+  </div>
+  <div>
+    <%= image_tag post_spot.get_spot_image(300,300) %>
+  </div>
+  <div>
+    <p><%= post_spot.name %></p>
+    <p><%= post_spot.postcode %></p>
+    <p><%= post_spot.address %></p>
+    <p>
+      <%= link_to user_path(post_spot.user.id) do %>
+        <%= post_spot.user.name %>
+      <% end %>
+      </p>
+  </div>
+  <% end %>
+</div>
+
+

@@ -1,6 +1,7 @@
 class Public::HomesController < ApplicationController
   def top
     @post_spots = PostSpot.limit(4).order(created: :desc)
+    @prefectures = Prefecture.all
   end
 
   def about

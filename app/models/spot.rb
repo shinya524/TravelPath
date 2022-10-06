@@ -1,7 +1,7 @@
 class Spot < ApplicationRecord
 
   has_many :post_spots, dependent: :destroy
-  has_many :genres, dependent: :destroy
+  has_many :genres
 
   extend ActiveHash::Associations::ActiveRecordExtensions
   belongs_to :prefecture

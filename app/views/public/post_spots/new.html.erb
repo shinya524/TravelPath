@@ -11,7 +11,7 @@
   <%= f.text_field :postcode %>
 
   <h4>都道府県</h4>
-  <%= f.collection_select :prefecture_id, Prefecture.all, :id, :name %>
+  <%= f.collection_select :prefecture_id, Prefecture.all, :id, :name, prompt: "--" %>
 
   <h4>住所</h4>
   <%= f.text_field :address %>
