@@ -32,8 +32,8 @@ Rails.application.routes.draw do
     resources :genres, only: [:index, :edit, :create, :destroy, :update]
     resources :spots, only: [:index, :show, :edit, :destroy, :update]
     resources :users, only: [:index, :show, :edit, :update]
-    resources :post_spots, only: [:show]
-    resources :post_comments, only: [:show, :destroy]
+    resources :post_spots, only: [:show, :edit, :update, :destroy]
+    resources :post_comments, only: [:destroy]
   end
 
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
