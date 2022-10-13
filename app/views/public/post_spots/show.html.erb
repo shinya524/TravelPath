@@ -47,14 +47,12 @@
     </div>
 
     <div>
-      <div>
-        <% @post_comments.each do |comment| %>
-          <%= comment.comment %>
-        <% end %>
+      <div class ="comments">
+        <%= render 'public/post_comments/post_comment', post_spot: @post_spot %>
       </div>
 
       <div>
-        <%= form_with(model: [@post_spot, @post_comment], method: :post) do |f| %>
+        <%= form_with(model: [@post_spot, @post_comment], method: :post, local: false) do |f| %>
           <%= f.text_area :comment %>
           <%= f.hidden_field :post_spot_id, value: @post_spot.id %>
           <%= f.submit "comment" %>

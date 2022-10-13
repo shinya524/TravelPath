@@ -1,9 +1,10 @@
 class Public::PostCommentsController < ApplicationController
 
   def create
+    @post_spot = PostSpot.find(params[:post_spot_id])
+    @post_comments = @post_spot.post_comments
     @post_comment = current_user.post_comments.new(post_comment_params)
     @post_comment.save
-    redirect_to post_spot_path(@post_comment.post_spot.id)
   end
 
   private
