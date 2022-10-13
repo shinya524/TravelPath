@@ -12,7 +12,11 @@
     <tbody>
       <% @genres.each do |genre| %>
       <tr>
-        <td><%= genre.name %></td>
+        <td>
+          <%= link_to prefecture_path(@prefecture.id, {genre_id: genre.id}) do %>
+          <%= genre.name %>
+          <% end %>
+        </td>
       </tr>
       <% end %>
     </tbody>
