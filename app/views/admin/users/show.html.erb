@@ -1,2 +1,61 @@
-<h1>Admin::Users#show</h1>
-<p>Find me in app/views/admin/users/show.html.erb</p>
+<div>
+  <h4><%= @user.name %>の会員詳細</h4>
+</div>
+
+<div>
+  <table>
+    <tbody>
+      <tr>
+        <td>会員ID</td>
+        <td><%= @user.id %></td>
+      </tr>
+
+      <tr>
+        <td><%= image_tag @user.get_profile_image(100, 100) %></td>
+      </tr>
+
+      <tr>
+        <td>会員名</td>
+        <td><%= @user.name %></td>
+      </tr>
+
+      <tr>
+        <td>紹介文</td>
+        <td><%= @user.introduction %></td>
+      </tr>
+
+      <tr>
+        <td>会員ステータス</td>
+        <td></td>
+      </tr>
+    </tbody>
+
+    <tr>
+      <td><%= link_to "編集", edit_admin_user_path(@user) %></td>
+      <td><%= link_to "戻る", admin_users_path %></td>
+    </tr>
+  </table>
+</div>
+
+<div>
+  <% @post_spots.each do |post_spot| %>
+    <div>
+      <div>
+        <p><%= post_spot.comment %></p>
+      </div>
+      <div>
+        <%= image_tag post_spot.get_spot_image(300,300) %>
+      </div>
+      <div>
+        <p><%= post_spot.name %></p>
+        <p><%= post_spot.postcode %></p>
+        <p><%= post_spot.address %></p>
+        <p><%= post_spot.user.name %></p>
+      </div>
+
+      <%= link_to admin_post_spot_path(post_spot.id) do %>
+      詳細
+      <% end %>
+    </div>
+  <% end %>
+</div>
