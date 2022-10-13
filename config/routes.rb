@@ -11,7 +11,11 @@ Rails.application.routes.draw do
     get "/about" => "homes#about"
 
     resources :spots, only: [:index, :show]
-    resources :users, only: [:show, :edit, :update]
+    resources :users, only: [:show, :edit, :update] do
+      member do
+        get :favorites
+      end
+    end
     get '/users/:id/detail' => 'users#detail'
     resources :post_spots, only: [:new, :show, :edit, :update, :destroy, :create]  do
       resource :favorites, only: [:create, :destroy]

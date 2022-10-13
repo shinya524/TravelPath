@@ -5,15 +5,21 @@
         <%= image_tag @user.get_profile_image(100, 100) %>
         <h4>名前:<%= @user.name %></h4>
         <h4>紹介文:<%= @user.introduction %></h4>
+        <h4>
+          いいね数:
+          <%= link_to favorites_user_path(@user) do %>
+            <%= @user.favorites.count %>
+          <% end %>
+        </h4>
       </div>
-      
+
       <div>
         <%= link_to edit_user_path(@user.id) do %>
           プロフィール編集
         <% end %>
       </div>
     </div>
-    
+
     <div>
     <% @post_spots.each do |post_spot| %>
       <div>
@@ -32,22 +38,22 @@
           <p><%= post_spot.address %></p>
           <p><%= post_spot.user.name %></p>
         </div>
-      
+
         <% if post_spot.user == current_user %>
           <%= link_to edit_post_spot_path(post_spot.id) do %>
             編集
           <% end %>
-      
+
           <%= link_to post_spot_path(post_spot.id), method: :delete do %>
             削除
           <% end %>
         <% end %>
-      
+
         <%= link_to post_spot_path(post_spot.id) do %>
           詳細
         <% end %>
       </div>
-    
+
     <% end %>
     </div>
 
