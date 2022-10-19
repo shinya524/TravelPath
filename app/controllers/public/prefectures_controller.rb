@@ -1,4 +1,6 @@
 class Public::PrefecturesController < ApplicationController
+  before_action :search, only: [:show, :search]
+
   def show
     @prefecture = Prefecture.find(params[:id])
     prefecture_post_spots = PostSpot.where(prefecture_id: @prefecture.id)
@@ -9,9 +11,17 @@ class Public::PrefecturesController < ApplicationController
     @genres = Genre.all
   end
 
+   def search
+    @results = @search.result
+  end
+
 
   private
   def prefecture_params
     params.require(:prefecture).permit(:name)
+  end
+
+  def search
+    @search = PostSpot.ransack(params[:q])
   end
 end

@@ -2,6 +2,7 @@ class Public::UsersController < ApplicationController
   def show
     @user = User.find(params[:id])
     @post_spots = @user.post_spots
+    @prefectures = Prefecture.all
   end
 
   def detail

@@ -16,10 +16,12 @@ Rails.application.routes.draw do
         get :favorites
       end
     end
-    get '/users/:id/detail' => 'users#detail'
     resources :post_spots, only: [:new, :show, :edit, :update, :destroy, :create]  do
       resource :favorites, only: [:create, :destroy]
       resource :post_comments, only: [:create]
+      collection do
+        get 'search'
+      end
     end
     resources :prefectures, only: [:show]
     resources :genres, only: [:show]

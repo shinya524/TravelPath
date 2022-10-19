@@ -21,7 +21,7 @@
     </div>
 
     <div>
-    <% @post_spots.each do |post_spot| %>
+      <% @post_spots.each do |post_spot| %>
       <div>
         <div>
           <p><%= post_spot.comment %></p>
@@ -54,7 +54,28 @@
         <% end %>
       </div>
 
-    <% end %>
+      <% end %>
+    </div>
+
+    <div>
+      <table>
+        <thead>
+          <tr>
+            <th>ジャンル名</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @prefectures.each do |prefecture| %>
+          <tr>
+            <td>
+              <%= link_to prefecture_path(prefecture.id) do %>
+              <%= prefecture.name %>
+              <% end %>
+            </td>
+          </tr>
+          <% end %>
+        </tbody>
+    　</table>
     </div>
 
   </div>
