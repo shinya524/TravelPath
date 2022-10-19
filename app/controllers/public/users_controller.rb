@@ -5,9 +5,6 @@ class Public::UsersController < ApplicationController
     @prefectures = Prefecture.all
   end
 
-  def detail
-  end
-
   def edit
     @user = User.find(params[:id])
   end

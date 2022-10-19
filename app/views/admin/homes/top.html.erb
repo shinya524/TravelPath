@@ -1,2 +1,12 @@
-<h1>Admin::Homes#top</h1>
-<p>Find me in app/views/admin/homes/top.html.erb</p>
+ <div>
+      <% @post_spots.each do |post_spot| %>
+
+        <%= image_tag post_spot.get_spot_image(100,100) %>
+        <%= post_spot.name %>
+        <%= post_spot.comment %>
+        <%= link_to user_path(post_spot.user.id) do %>
+          <%= post_spot.user.name %>
+        <% end %>
+
+      <% end %>
+    </div>

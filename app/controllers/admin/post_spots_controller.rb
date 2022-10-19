@@ -1,4 +1,5 @@
 class Admin::PostSpotsController < ApplicationController
+  before_action :authenticate_admin!
   def show
     @post_spot = PostSpot.find(params[:id])
     @post_comments = @post_spot.post_comments

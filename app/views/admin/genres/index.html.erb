@@ -21,8 +21,8 @@
     <tr>
       <td><%= genre.name %></td>
       <td>
-        <%= link_to edit_admin_genre_path(genre.id) do %>
-          編集する
+        <%= link_to admin_genre_path(genre.id), method: :delete do %>
+          削除する
         <% end %>
       </td>
     </tr>

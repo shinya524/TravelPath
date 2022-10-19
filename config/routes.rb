@@ -24,7 +24,6 @@ Rails.application.routes.draw do
       end
     end
     resources :prefectures, only: [:show]
-    resources :genres, only: [:show]
   end
 
   #管理者用
@@ -35,7 +34,7 @@ Rails.application.routes.draw do
   namespace :admin do
     get "/" => "homes#top"
 
-    resources :genres, only: [:index, :edit, :create, :destroy, :update]
+    resources :genres, only: [:index, :create, :destroy]
     resources :spots, only: [:index, :show, :edit, :destroy, :update]
     resources :users, only: [:index, :show, :edit, :update]
     resources :post_spots, only: [:show, :edit, :update, :destroy]
