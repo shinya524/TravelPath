@@ -14,8 +14,10 @@
       </div>
 
       <div>
-        <%= link_to edit_user_path(@user.id) do %>
-          プロフィール編集
+        <% if @user.name != "guestuser" %>
+          <%= link_to edit_user_path(@user.id) do %>
+            プロフィール編集
+          <% end %>
         <% end %>
       </div>
     </div>
