@@ -10,3 +10,11 @@ Admin.create!(
   email: 'test@test.com',
   password: 'aaaaaa',
   )
+
+Genre.create!(
+  [
+    {name: '城・史跡'},
+    {name: '歴史'},
+    {name: 'アミューズメント'},
+    {name: 'その他'},
+    ])
