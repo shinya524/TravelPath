@@ -35,11 +35,6 @@
                   <% end %>
                 </li>
                 <li>
-                  <%= link_to spots_path, class: "nav-link text-light" do %>
-                  スポット一覧
-                  <% end %>
-                </li>
-                <li>
                   <%= link_to new_post_spot_path, class: "nav-link text-light" do %>
                   投稿
                   <% end %>
@@ -58,13 +53,13 @@
 
               <% elsif admin_signed_in? %>
                 <li>
-                  <%= link_to spots_path, class: "nav-link text-light" do %>
-                  スポット一覧
+                  <%= link_to admin_users_path, class: "nav-link text-light" do %>
+                  ユーザー一覧
                   <% end %>
                 </li>
                 <li>
-                  <%= link_to admin_users_path, class: "nav-link text-light" do %>
-                  ユーザー一覧
+                  <%= link_to admin_genres_path, class: "nav-link text-light" do %>
+                  ジャンル一覧
                   <% end %>
                 </li>
                 <li>
@@ -78,11 +73,6 @@
                 <li>
                   <%= link_to "/about", class: "nav-link text-light" do %>
                   About
-                  <% end %>
-                </li>
-                <li>
-                  <%= link_to spots_path, class: "nav-link text-light" do %>
-                  スポット一覧
                   <% end %>
                 </li>
                 <li>
@@ -106,7 +96,7 @@
       <%= yield %>
     </main>
 
-    <footer class ="fixed-bottom">
+    <footer>
       <div class =" navbar-expand-lg bg-dark">
         <div class ="container">
           <div class ="row">

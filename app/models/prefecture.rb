@@ -21,6 +21,5 @@ class Prefecture < ActiveHash::Base
 
   include ActiveHash::Associations
   has_many :post_spots
-  has_many :spots
 
 end

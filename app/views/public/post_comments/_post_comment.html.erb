@@ -1,3 +1,11 @@
-<% post_spot.post_comments.each do |comment| %>
-  <%= comment.comment %>
-<% end %>
+<table>
+  <tbody>
+    <% post_spot.post_comments.each do |comment| %>
+    <tr>
+      <td>
+        <%= comment.comment %>
+      </td>
+    </tr>
+    <% end %>
+  </tbody>
+</table>

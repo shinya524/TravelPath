@@ -1,12 +1,27 @@
- <div>
-      <% @post_spots.each do |post_spot| %>
+<div class ="container">
+  <div class ="row">
 
-        <%= image_tag post_spot.get_spot_image(100,100) %>
-        <%= post_spot.name %>
-        <%= post_spot.comment %>
-        <%= link_to user_path(post_spot.user.id) do %>
-          <%= post_spot.user.name %>
-        <% end %>
-
-      <% end %>
+    <div class ="album py-5">
+      <div class ="container">
+        <div class ="row">
+          <% @post_spots.each do |post_spot| %>
+          <div class ="col-md-8">
+            <div class ="card mb-8">
+              <div>
+                <%= image_tag post_spot.get_spot_image(100,100) %>
+              </div>
+              <div>
+                <%= post_spot.name %>
+                <%= post_spot.comment %>
+                <%= link_to user_path(post_spot.user.id) do %>
+                  <%= post_spot.user.name %>
+                <% end %>
+              </div>
+            </div>
+          </div>
+          <% end %>
+        </div>
+      </div>
     </div>
+  </div>
+</div>

@@ -14,7 +14,6 @@ Rails.application.routes.draw do
     root to: "homes#top"
     get "/about" => "homes#about"
 
-    resources :spots, only: [:index, :show]
     resources :users, only: [:show, :edit, :update] do
       member do
         get :favorites
@@ -39,7 +38,6 @@ Rails.application.routes.draw do
     get "/" => "homes#top"
 
     resources :genres, only: [:index, :create, :destroy]
-    resources :spots, only: [:index, :show, :edit, :destroy, :update]
     resources :users, only: [:index, :show, :edit, :update]
     resources :post_spots, only: [:show, :edit, :update, :destroy]
     resources :post_comments, only: [:destroy]

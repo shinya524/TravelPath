@@ -88,19 +88,6 @@ ActiveRecord::Schema.define(version: 2022_10_03_062950) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
-  create_table "spots", force: :cascade do |t|
-    t.integer "post_spot_id", null: false
-    t.integer "genre_id", null: false
-    t.integer "prefecture_id", null: false
-    t.string "name", null: false
-    t.string "address", null: false
-    t.string "postcode", null: false
-    t.float "latirude", null: false
-    t.float "longitude", null: false
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-  end
-
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false

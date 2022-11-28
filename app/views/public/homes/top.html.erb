@@ -1,11 +1,10 @@
 <div class ="container">
   <div class ="row">
-
-    <div>
-      <table>
-        <thead>
+    <div class = "col-md-2 d-flex align-items-center justify-content-center">
+      <table class = "prefecture-table table table-bordered table-hover shadow-lg">
+        <thead class = "prefecture-thead">
           <tr>
-            <th>都道府県一覧</th>
+            <th class = "active table-active">都道府県一覧</th>
           </tr>
         </thead>
         <tbody>
@@ -13,7 +12,7 @@
           <tr>
             <td>
               <%= link_to prefecture_path(prefecture.id) do %>
-              <%= prefecture.name %>
+                <%= prefecture.name %>
               <% end %>
             </td>
           </tr>
@@ -22,17 +21,27 @@
       </table>
     </div>
 
-    <div>
-      <% @post_spots.each do |post_spot| %>
-
-        <%= image_tag post_spot.get_spot_image(100,100) %>
-        <%= post_spot.name %>
-        <%= post_spot.comment %>
-        <%= link_to user_path(post_spot.user.id) do %>
-          <%= post_spot.user.name %>
-        <% end %>
-
-      <% end %>
+    <div class ="album py-5">
+      <div class ="container">
+        <div class ="row">
+          <% @post_spots.each do |post_spot| %>
+          <div class ="col-md-8">
+            <div class ="card mb-4">
+              <div>
+                <%= image_tag post_spot.get_spot_image(300,300) %>
+              </div>
+              <div>
+                <%= post_spot.name %><br>
+                <%= post_spot.comment %><br>
+                <%= link_to user_path(post_spot.user.id) do %>
+                  <%= post_spot.user.name %><br>
+                <% end %>
+              </div>
+            </div>
+          </div>
+          <% end %>
+        </div>
+      </div>
     </div>
 
   </div>

@@ -24,27 +24,33 @@
     </table>
   </div>
 
-  <div class ="row">
-    <% @prefecture_post_spots.each do |post_spot| %>
-    <div>
-      <div>
-        <p><%= post_spot.comment %></p>
-      </div>
-      <div>
-        <%= image_tag post_spot.get_spot_image(300,300) %>
-      </div>
-      <div>
-        <p><%= post_spot.name %></p>
-        <p><%= post_spot.postcode %></p>
-        <p><%= post_spot.address %></p>
-        <p>
-          <%= link_to user_path(post_spot.user.id) do %>
-            <%= post_spot.user.name %>
-          <% end %>
-        </p>
+  <div class ="album py-5">
+    <div class ="container">
+      <div class ="row">
+        <% @prefecture_post_spots.each do |post_spot| %>
+        <div class ="col-md-4">
+          <div class ="card mb-4">
+            <div>
+              <p><%= post_spot.comment %></p>
+            </div>
+            <div>
+              <%= image_tag post_spot.get_spot_image(300,300) %>
+            </div>
+            <div>
+              <p><%= post_spot.name %></p>
+              <p><%= post_spot.postcode %></p>
+              <p><%= post_spot.address %></p>
+              <p>
+                <%= link_to user_path(post_spot.user.id) do %>
+                  <%= post_spot.user.name %>
+                <% end %>
+              </p>
+            </div>
+          </div>
+        </div>
+        <% end %>
       </div>
     </div>
-    <% end %>
   </div>
 </div>
 
